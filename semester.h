@@ -15,6 +15,16 @@ private:
     temp.setCourse(Name, Credits, Grade);
     courses.push_back(temp);
   }
+  void CalculateGPA(){
+    semesterGPA = 0.0;
+    credits = 0;
+    for(int i=0; i < numCourses; i++){
+      credits += courses[i].getCredits();
+    }
+    for(int i=0; i < numCourses; i++){
+      semesterGPA += courses[i].getCredits()*courses[i].getGradef();
+    }
+  }
 public:
   Semester(){
     this->name = "";
@@ -34,6 +44,12 @@ public:
   int getNumCourses(){
     return numCourses;
   }
+  int getCredits(){
+    return credits;
+  }
+  float getGPA(){
+    return semesterGPA;
+  }
   void set_courses(){
     for(int i=0; i<numCourses;i++){
       string Name, Grade;
@@ -48,8 +64,15 @@ public:
       cout<<"Enter the grade recieved for this course: ";
       getline(cin, Grade);
       add_course(Name, Credits, Grade);
-
     }
+    CalculateGPA();
+  }
+  void printSemGPA(){
+    cout << "Semester : " << name<< endl;
+    for (int i=0; i <numCourses; i++){
+      cout <<"Course "<< i+1<<". Name: "<<courses[i].getName()<<" Credits: "<<courses[i].getCredits()<<" GPA points:"<<courses[i].getGradef()<<endl;
+    }
+    cout<<"Semester Credits : "<< credits<<"        Semester GPA : "<< semesterGPA/credits<< endl;
   }
 
 };
