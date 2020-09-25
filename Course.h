@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 class Course{
 private:
   string name; //unique identifier.

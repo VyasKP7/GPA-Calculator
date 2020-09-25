@@ -1,5 +1,5 @@
 # include <iostream>
-# include "CDA.h"
+#include <string.h>
 # include "semester.h"
 using namespace std;
 int main(){
@@ -8,7 +8,7 @@ int main(){
   vector <Semester> Semesters;    //will store info for all semesters.
   int inp = 0;
   while(1){
-    cout<<"-----------------------------------Menu------------------------------------\n";
+    cout<<"----------------------------Menu------------------------------\n";
     cout<<"\t\t1 -> Add a semester\n";
     cout<<"\t\t2 -> Calculate GPA\n";
     cout<<"\t\t3 -> Save to File\n";
@@ -28,6 +28,7 @@ int main(){
         cin>>semNumCourses;
         a.setName(semName);
         a.setNumCourses(semNumCourses);
+        a.set_courses();
         break;
       }
       case 2:

@@ -1,7 +1,8 @@
-#include <iostream>
+
 #include <vector>
-#include<string.h>
+#include <string.h>
 #include "Course.h"
+using namespace std;
 class Semester{
 private:
   string name;      //name of semester, unique
@@ -9,6 +10,11 @@ private:
   int numCourses;   //user input
   int credits;     //calculated
   float semesterGPA;  //calculated
+  void add_course(string Name,int Credits ,string Grade){     //Adds course to courses
+    Course temp;
+    temp.setCourse(Name, Credits, Grade);
+    courses.push_back(temp);
+  }
 public:
   Semester(){
     this->name = "";
@@ -28,9 +34,22 @@ public:
   int getNumCourses(){
     return numCourses;
   }
-  void add_course(string Name,int Credits ,string Grade){
-    Course temp;
-    temp.setCourse(Name, Credits, Grade);
-    courses.push_back(temp);
+  void set_courses(){
+    for(int i=0; i<numCourses;i++){
+      string Name, Grade;
+      int Credits;
+      cout<<"\nEnter course information for course "<<i+1<<endl;
+      cout<<"Enter name of course: ";
+      cin.ignore();
+      getline(cin, Name);
+      cout<<"Enter the number of credits for this course: ";
+      cin>>Credits;
+      cin.ignore();
+      cout<<"Enter the grade recieved for this course: ";
+      getline(cin, Grade);
+      add_course(Name, Credits, Grade);
+
+    }
   }
+
 };
