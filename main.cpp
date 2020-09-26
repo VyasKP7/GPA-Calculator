@@ -13,6 +13,22 @@ int main(){
   int numSemesters = 0;
   float GPApoints = 0.0;
   int inp = 0;
+  int choice = 0;
+  cout<<"----------------------------Menu------------------------------\n";
+  cout<<"\t\t1 -> Start from Scratch.\n";
+  cout<<"\t\t2 -> Load from old file.\n";
+  cout<<"What would you like to do?\n";
+  cin >> choice;
+  if(choice == 2)
+  {
+    cout<<"Not yet Implemented.\n";
+    exit(0);
+  }
+  if(choice !=1){
+    cout<<"Invalid entry\n";
+    exit(0);
+  }
+
   while(1){
     cout<<"----------------------------Menu------------------------------\n";
     cout<<"\t\t1 -> Add a semester\n";
@@ -49,6 +65,7 @@ int main(){
       case 3:
       {
         //Add later
+        cout<<"Not yet implemented.\n";
         break;
       }
       case 4:
