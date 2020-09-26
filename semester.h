@@ -62,7 +62,7 @@ public:
       cin>>Credits;
       cin.ignore();
       cout<<"Enter the grade recieved for this course: ";
-      getline(cin, Grade);
+      cin>> Grade;
       add_course(Name, Credits, Grade);
     }
     CalculateGPA();

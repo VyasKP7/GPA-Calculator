@@ -28,9 +28,9 @@ int main(){
         Semester a;
         string semName;
         int semNumCourses;
-        cout<<"Enter a name for the semester:\n";
+        cout<<"Enter a name for the semester: ";
         getline(cin, semName);
-        cout<<"Enter number of courses for the semester:\n";
+        cout<<"Enter number of courses for the semester: ";
         cin>>semNumCourses;
         a.setName(semName);
         a.setNumCourses(semNumCourses);
@@ -63,9 +63,18 @@ int main(){
   return 0;
 }
 void printGPASheet(vector <Semester> semesters,int totalCredits, float GPApoints){
+  cout<<"\n";
   for(int i = 0;i < semesters.size(); i++){
     semesters[i].printSemGPA();
+    cout<<"\n";
   }
-  cout<<"Total number of credits: "<< totalCredits <<" Total GPA points: "<<GPApoints<<endl;
-  cout<<"Calculated GPA is "<<GPApoints/(float)totalCredits<<endl;
+  if(totalCredits > 0){
+    cout<<"\nTotal number of credits: "<< totalCredits <<" Total Quality points: "<<GPApoints<<endl;
+    cout<<"Calculated GPA is "<<GPApoints/(float)totalCredits<<endl;
+  }
+  else{
+    cout<<"\nTotal number of credits: 0  Total Quality points: 0\n";
+    cout<<"Calculated GPA is N/A\n";
+  }
+
 }
