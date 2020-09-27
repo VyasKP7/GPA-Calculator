@@ -1,9 +1,10 @@
 # include <iostream>
 #include <string.h>
+#include <iomanip>
 # include "semester.h"
 using namespace std;
 
-void printGPASheet(vector <Semester>, int, float);
+void printGPASheet(vector <Semester>, int, double);
 
 int main(){
 
@@ -11,7 +12,7 @@ int main(){
   vector <Semester> Semesters;    //will store info for all semesters.
   int totalCredits = 0;
   int numSemesters = 0;
-  float GPApoints = 0.0;
+  double GPApoints = 0.0;
   int inp = 0;
   int choice = 0;
   cout<<"----------------------------Menu------------------------------\n";
@@ -79,18 +80,18 @@ int main(){
   }
   return 0;
 }
-void printGPASheet(vector <Semester> semesters,int totalCredits, float GPApoints){
+void printGPASheet(vector <Semester> semesters,int totalCredits, double GPApoints){
   cout<<"\n";
   for(int i = 0;i < semesters.size(); i++){
     semesters[i].printSemGPA();
     cout<<"\n";
   }
   if(totalCredits > 0){
-    cout<<"\nTotal number of credits: "<< totalCredits <<" Total Quality points: "<<GPApoints<<endl;
-    cout<<"Calculated GPA is "<<GPApoints/(float)totalCredits<<endl;
+    cout<<"\nTotal number of credits: "<< totalCredits <<" Total Quality points: "<<fixed<< setprecision(3)<< GPApoints<<endl;
+    cout<<"Calculated GPA is "<<fixed<< setprecision(3)<< GPApoints/(double)totalCredits<<endl;
   }
   else{
-    cout<<"\nTotal number of credits: 0  Total Quality points: 0\n";
+    cout<<"\nTotal number of credits: 0  Total Quality points: 0.000\n";
     cout<<"Calculated GPA is N/A\n";
   }
 

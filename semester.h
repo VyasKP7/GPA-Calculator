@@ -1,6 +1,7 @@
 
 #include <vector>
 #include <string.h>
+#include <iomanip>
 #include "Course.h"
 using namespace std;
 class Semester{
@@ -9,7 +10,7 @@ private:
   vector <Course> courses;    //user input
   int numCourses;   //user input
   int credits;     //calculated
-  float semesterGPA;  //calculated
+  double semesterGPA;  //calculated
   void add_course(string Name,int Credits ,string Grade){     //Adds course to courses
     Course temp;
     temp.setCourse(Name, Credits, Grade);
@@ -47,7 +48,7 @@ public:
   int getCredits(){
     return credits;
   }
-  float getGPA(){
+  double getGPA(){
     return semesterGPA;
   }
   void set_courses(){
@@ -72,7 +73,7 @@ public:
     for (int i=0; i <numCourses; i++){
       cout <<"Course "<< i+1<<". Name: "<<courses[i].getName()<<" Credits: "<<courses[i].getCredits()<<" GPA points:"<<courses[i].getGradef()<<endl;
     }
-    cout<<"Semester Credits : "<< credits<<"        Semester GPA : "<< semesterGPA/credits<< endl;
+    cout<<"Semester Credits : "<< credits<<"        Semester GPA : "<< fixed<< setprecision(3)<< (double)semesterGPA/credits<<endl;
   }
 
 };
