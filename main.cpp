@@ -1,7 +1,9 @@
-# include <iostream>
+#include <iostream>
 #include <string.h>
 #include <iomanip>
-# include "semester.h"
+#include "semester.h"
+#include "LoadFiles.h"
+
 using namespace std;
 
 void printGPASheet(vector <Semester>, int, double);
@@ -15,15 +17,15 @@ int main(){
   double GPApoints = 0.0;
   int inp = 0;
   int choice = 0;
-  cout<<"----------------------------Menu------------------------------\n";
+  cout<<"--------------------------Initial Menu-------------------------\n";
   cout<<"\t\t1 -> Start from Scratch.\n";
   cout<<"\t\t2 -> Load from old file.\n";
-  cout<<"What would you like to do?\n";
+  cout<<"What would you like to do?: ";
   cin >> choice;
   if(choice == 2)
   {
-    cout<<"Not yet Implemented.\n";
-    exit(0);
+    loadFiles(totalCredits, numSemesters, GPApoints, Semesters);
+    choice = 1;
   }
   if(choice !=1){
     cout<<"Invalid entry\n";
@@ -31,7 +33,7 @@ int main(){
   }
 
   while(1){
-    cout<<"----------------------------Menu------------------------------\n";
+    cout<<"------------------------Main Menu------------------------------\n";
     cout<<"\t\t1 -> Add a semester\n";
     cout<<"\t\t2 -> Show GPA sheet\n";
     cout<<"\t\t3 -> Save to File\n";
@@ -65,8 +67,7 @@ int main(){
       }
       case 3:
       {
-        //Add later
-        cout<<"Not yet implemented.\n";
+        saveToFile(totalCredits, numSemesters, GPApoints, Semesters);
         break;
       }
       case 4:
