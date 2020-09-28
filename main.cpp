@@ -18,8 +18,8 @@ int main(){
   int inp = 0;
   int choice = 0;
   cout<<"--------------------------Initial Menu-------------------------\n";
-  cout<<"\t\t1 -> Start from Scratch.\n";
-  cout<<"\t\t2 -> Load from old file.\n";
+  cout<<"\t\t1 -> Start from Scratch\n";
+  cout<<"\t\t2 -> Load from old file\n";
   cout<<"What would you like to do?: ";
   cin >> choice;
   if(choice == 2)

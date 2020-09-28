@@ -6,8 +6,7 @@
 using namespace std;
 class Semester{
 private:
-  string name;      //name of semester, unique
-  vector <Course> courses;    //user input
+  string name;      //name of semester, unique  
   int numCourses;   //user input
   int credits;     //calculated
   double semesterGPA;  //calculated
@@ -27,6 +26,7 @@ private:
     }
   }
 public:
+  vector <Course> courses;    //user input
   Semester(){
     this->name = "";
     numCourses = 0;

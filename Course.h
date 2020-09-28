@@ -36,6 +36,9 @@ public:
   int getCredits(){
     return credits;
   }
+  string getGrade(){
+    return grade;
+  }
   float getGradef(){
     return gradef;
   }
