@@ -6,25 +6,11 @@
 using namespace std;
 class Semester{
 private:
-  string name;      //name of semester, unique  
+  string name;      //name of semester, unique
   int numCourses;   //user input
   int credits;     //calculated
   double semesterGPA;  //calculated
-  void add_course(string Name,int Credits ,string Grade){     //Adds course to courses
-    Course temp;
-    temp.setCourse(Name, Credits, Grade);
-    courses.push_back(temp);
-  }
-  void CalculateGPA(){
-    semesterGPA = 0.0;
-    credits = 0;
-    for(int i=0; i < numCourses; i++){
-      credits += courses[i].getCredits();
-    }
-    for(int i=0; i < numCourses; i++){
-      semesterGPA += courses[i].getCredits()*courses[i].getGradef();
-    }
-  }
+
 public:
   vector <Course> courses;    //user input
   Semester(){
@@ -50,6 +36,21 @@ public:
   }
   double getGPA(){
     return semesterGPA;
+  }
+  void add_course(string Name,int Credits ,string Grade){     //Adds course to courses
+    Course temp;
+    temp.setCourse(Name, Credits, Grade);
+    courses.push_back(temp);
+  }
+  void CalculateGPA(){
+    semesterGPA = 0.0;
+    credits = 0;
+    for(int i=0; i < numCourses; i++){
+      credits += courses[i].getCredits();
+    }
+    for(int i=0; i < numCourses; i++){
+      semesterGPA += courses[i].getCredits()*courses[i].getGradef();
+    }
   }
   void set_courses(){
     for(int i=0; i<numCourses;i++){
