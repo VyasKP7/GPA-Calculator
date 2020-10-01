@@ -10,17 +10,17 @@ form an array of semesters which </br> in turn also stores an array of courses f
 An example of execution:
 </br>
 </br>
-<img src="./SampleExecution.png" width="386" height="500">
+<img src="./Pictures/SampleExecution.png" width="386" height="500">
 </br>
 </br>
 If we had a save file such as:
 
 
 </br>
-<img src="./testFile.png" width="135" height="157.5">
+<img src="./Pictures/testFile.png" width="135" height="157.5">
 </br>
 </br>
 Then we could load it and we would get:
 </br>
 </br>
-<img src="./testCL.png" width="380" height="440">
+<img src="./Pictures/testCL.png" width="380" height="440">
