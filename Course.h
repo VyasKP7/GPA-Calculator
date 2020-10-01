@@ -8,7 +8,7 @@ private:
   float gradef;
   void setGradef();
 public:
-  Course(){
+  Course(){      //Base Constructor
     name = "";
     credits = 0;
     grade = "";
@@ -44,7 +44,7 @@ public:
   }
 };
 
-void Course::setGradef(){
+void Course::setGradef(){            //Provides appropriate gpa points
     if(grade == "A+"){
       gradef = 4.33;
     }

@@ -5,7 +5,7 @@
 #include <sstream>
 using namespace std;
 
-void loadFiles(int &totalCredits,int &numSemesters,double &GPApoints,vector <Semester> &Semesters){
+void loadFiles(int &totalCredits,int &numSemesters,double &GPApoints,vector <Semester> &Semesters){       //Loads Files from save file.
   ifstream myFile;
   string chosenFile;
   myFile.open("Save.txt", ios::binary);       //file that stores the list of saved files
@@ -102,7 +102,7 @@ void loadFiles(int &totalCredits,int &numSemesters,double &GPApoints,vector <Sem
 
 }
 
-void saveToFile(int totalCredits,int numSemesters,double GPApoints,vector <Semester> Semesters){    //Save these value to csv file.
+void saveToFile(int totalCredits,int numSemesters,double GPApoints,vector <Semester> Semesters){    //Save these values to csv file.
   int input;
 
   while(1){

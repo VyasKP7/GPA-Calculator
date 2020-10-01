@@ -4,6 +4,7 @@
 #include <iomanip>
 #include "Course.h"
 using namespace std;
+int errorCheck(string inp);
 class Semester{
 private:
   string name;      //name of semester, unique
@@ -13,7 +14,7 @@ private:
 
 public:
   vector <Course> courses;    //user input
-  Semester(){
+  Semester(){        //Basic Constructor
     this->name = "";
     numCourses = 0;
     credits = 0;
@@ -52,7 +53,7 @@ public:
       semesterGPA += courses[i].getCredits()*courses[i].getGradef();
     }
   }
-  void set_courses(){
+  void set_courses(){           //User Loop to input courses
     for(int i=0; i<numCourses;i++){
       string Name, Grade;
       int Credits;
@@ -61,11 +62,18 @@ public:
       cin.ignore();
       getline(cin, Name);
       cout<<"Enter the number of credits for this course: ";
-      cin>>Credits;
-      cin.ignore();
-      cout<<"Enter the grade recieved for this course: ";
-      cin>> Grade;
+      string NUMS;
+      cin >> NUMS;
+      Credits = errorCheck(NUMS);
+      if(Credits != -1){
+        cin.ignore();
+        cout<<"Enter the grade recieved for this course: ";
+        cin>> Grade;
+      }
       add_course(Name, Credits, Grade);
+      if(Credits == -1){
+        return;
+      }
     }
     CalculateGPA();
   }
@@ -76,5 +84,22 @@ public:
     }
     cout<<"Semester Credits : "<< credits<<"        Semester GPA : "<< fixed<< setprecision(3)<< (double)semesterGPA/credits<<endl;
   }
-
 };
+
+int errorCheck(string inp){
+  int num = 0;
+  int badInput = 0;
+  for (int i = 0; i < inp.size(); i++){
+    if(!isdigit(inp[i])){
+      badInput = 1;
+      break;
+    }
+  }
+  if(badInput == 1)
+    return -1;
+  num = stoi(inp);
+  if(num < 1)
+    return -1;
+
+  return num;
+}
